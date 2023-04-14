@@ -1,8 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Todo from "./components/Todo";
+import axios from "axios";
+import uuid from "react-uuid";
 
 function App() {
-  const [count, setCount] = useState(0);
+  // All todos state
+  const [todos, setTodos] = useState([]);
+
+  // Run once
+  useEffect(() => {
+    // Load all todos
+    loadTodos();
+  }, []);
+
+  // Function for loading all todos
+  const loadTodos = async () => {
+    try {
+      let res = await axios.get("https://localhost:7038/api/todo/getall");
+      setTodos(res.data);
+    } catch (exception) {
+      console.log(exception.response);
+    }
+  };
 
   return (
     <div className="app">
@@ -14,10 +33,9 @@ function App() {
         <button className="todo-save-btn">Save</button>
       </div>
       <div className="todo-display-area">
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
+        {todos?.map((item, index) => (
+          <Todo title={item.todoTitle} key={uuid()} />
+        ))}
       </div>
     </div>
   );

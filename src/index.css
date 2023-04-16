@@ -106,7 +106,7 @@ button:hover {
   align-items: center;
   flex-direction: column;
   background-color: #03fc88;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /* -----Item----- */

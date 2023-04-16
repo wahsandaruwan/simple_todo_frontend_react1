@@ -1,6 +1,3 @@
-// ----------Inbuilt components and modules----------
-import { useState } from "react";
-
 // ----------Third-party components and modules----------
 import axios from "axios";
 

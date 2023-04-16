@@ -44,7 +44,7 @@ button:hover {
 /* ----------Todo input area---------- */
 .todo-input-area {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -53,16 +53,17 @@ button:hover {
 
 /* -----Input box----- */
 .todo-input-area .todo-input-box {
-  width: 70%;
+  width: 45%;
   font-size: 1rem;
   padding: 10px;
   outline: none;
   border: 1px solid #000;
 }
 
-/* -----Save button----- */
-.todo-input-area .todo-save-btn {
-  width: 25%;
+/* -----Buttons----- */
+.todo-input-area .todo-save-btn,
+.todo-input-area .todo-reset-btn {
+  width: 15%;
   padding: 13px 10px;
   text-align: center;
   margin-left: 15px;
@@ -71,17 +72,22 @@ button:hover {
   border: none;
 }
 
+.todo-input-area .todo-reset-btn {
+  background-color: #f03f32;
+}
+
 /* ----------Todo display area---------- */
 .todo-display-area {
-  max-width: 550px;
+  width: 100%;
+  max-width: 500px;
   max-height: 700px;
-  padding: 10px 20px;
+  padding: 10px 20px 10px 20px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   background-color: #03fc88;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 /* -----Item----- */

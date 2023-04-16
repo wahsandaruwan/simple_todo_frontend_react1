@@ -38,6 +38,9 @@ function App() {
     try {
       let res = await axios.get(`https://localhost:7038/api/todo/getall`);
       setTodos(res.data);
+
+      // Clear
+      clearAll();
     } catch (exception) {
       console.log(exception.response);
     }
@@ -63,8 +66,6 @@ function App() {
         await axios.post(`https://localhost:7038/api/todo/create`, todo);
         alert("Sucessfully added!");
       }
-      // Clear
-      clearAll();
       // Load
       loadTodos();
     } catch (exception) {
@@ -104,6 +105,7 @@ function App() {
           />
         ))}
       </div>
+      <div className="overlay"></div>
     </div>
   );
 }

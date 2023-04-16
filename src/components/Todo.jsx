@@ -21,8 +21,10 @@ const Todo = ({ id, title, todo, status, load }) => {
   // Function for deleting a todo
   const deleteTodo = async () => {
     try {
-      await axios.delete(`https://localhost:7038/api/todo/delete/${id}`);
-      load();
+      if (confirm("Do you want to delete?")) {
+        await axios.delete(`https://localhost:7038/api/todo/delete/${id}`);
+        load();
+      }
     } catch (exception) {
       console.log(exception.response);
     }
